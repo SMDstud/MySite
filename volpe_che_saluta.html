@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volpe che Saluta</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Animazione per la zampa che saluta */
+        @keyframes wave-animation {
+            0% { transform: rotate(0deg); }
+            15% { transform: rotate(35deg); }
+            30% { transform: rotate(-15deg); }
+            45% { transform: rotate(35deg); }
+            60% { transform: rotate(-15deg); }
+            75% { transform: rotate(35deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        /* Animazione per l'ingresso del fumetto */
+        @keyframes pop-in {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Animazione leggera per la coda */
+        @keyframes wag {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(4deg); }
+        }
+
+        #waving-arm {
+            transform-origin: 190px 200px; /* Il fulcro è la spalla della volpe */
+            animation: wave-animation 2.5s infinite ease-in-out;
+        }
+
+        #tail {
+            transform-origin: 95px 260px;
+            animation: wag 3s infinite ease-in-out;
+        }
+
+        .speech-bubble {
+            animation: pop-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            opacity: 0;
+            animation-delay: 0.3s;
+        }
+
+        /* Triangolino del fumetto */
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+            display: block;
+            width: 0;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-green-200 via-teal-300 to-blue-400 flex items-center justify-center m-0 overflow-hidden font-sans">
+
+    <div class="relative flex flex-col items-center">
+        
+        <div class="speech-bubble relative bg-white text-teal-800 px-6 py-3 rounded-3xl font-bold text-xl shadow-lg mb-4 z-10">
+            Ciao! Buona giornata! 👋
+        </div>
+
+        <div class="w-64 h-64 md:w-80 md:h-80 drop-shadow-2xl">
+            <svg viewBox="0 0 300 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                
+                <!-- Coda (dietro il corpo) -->
+                <g id="tail">
+                    <path d="M 120 250 C 40 280 20 180 60 170 C 80 160 90 200 120 250" fill="#ea580c"/>
+                    <path d="M 50 215 C 30 180 60 170 60 170 C 80 160 70 190 50 215" fill="#ffffff"/>
+                </g>
+
+                <!-- Orecchio Sinistro -->
+                <polygon points="90,140 60,60 120,100" fill="#ea580c" stroke="#c2410c" stroke-width="2"/>
+                <polygon points="85,130 70,75 110,105" fill="#fed7aa"/>
+
+                <!-- Orecchio Destro -->
+                <polygon points="210,140 240,60 180,100" fill="#ea580c" stroke="#c2410c" stroke-width="2"/>
+                <polygon points="215,130 230,75 190,105" fill="#fed7aa"/>
+
+                <!-- Corpo -->
+                <ellipse cx="150" cy="220" rx="55" ry="65" fill="#ea580c"/>
+                
+                <!-- Pancia Bianca -->
+                <ellipse cx="150" cy="230" rx="35" ry="50" fill="#ffffff"/>
+
+                <!-- Braccio Sinistro (A riposo) -->
+                <path d="M 110 200 Q 90 240 120 260" stroke="#c2410c" stroke-width="14" stroke-linecap="round" fill="none"/>
+
+                <!-- Testa -->
+                <ellipse cx="150" cy="140" rx="65" ry="50" fill="#ea580c"/>
+
+                <!-- Guance bianche -->
+                <circle cx="120" cy="155" r="30" fill="#ffffff"/>
+                <circle cx="180" cy="155" r="30" fill="#ffffff"/>
+
+                <!-- Occhi -->
+                <circle cx="120" cy="135" r="6" fill="#111827"/>
+                <circle cx="180" cy="135" r="6" fill="#111827"/>
+                
+                <!-- Riflessi negli occhi -->
+<<<<<<< HEAD
+                <circle cx="118" cy="133" r="2" fill="#ff0000"/>
+=======
+                <circle cx="118" cy="133" r="2" fill="#ffff00"/>
+>>>>>>> 0c756a1c071317b8db16d51573f2ca9634b0231e
+                <circle cx="178" cy="133" r="2" fill="#ffffff"/>
+
+                <!-- Naso -->
+                <circle cx="150" cy="160" r="8" fill="#111827"/>
+                <!-- Sorriso -->
+                <path d="M 140 170 Q 150 180 160 170" stroke="#111827" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+                <!-- Braccio Destro (Che Saluta Animato) -->
+                <g id="waving-arm">
+                    <path d="M 190 200 Q 240 180 230 120" stroke="#ea580c" stroke-width="14" stroke-linecap="round" fill="none"/>
+                    <!-- Zampina (Punta bianca) -->
+                    <path d="M 233 130 Q 230 120 227 130" stroke="#ffffff" stroke-width="14" stroke-linecap="round" fill="none"/>
+                </g>
+
+            </svg>
+        </div>
+    </div>
+
+</body>
+</html>
